@@ -1,0 +1,6 @@
+
+This is a slightly modified version of the original nvram_bench.
+Instead of taking a memory address it takes a file name that it mmaps.
+It also adds a -o option to offset within that file. Finally, it tries
+to automatically determine the DMI size by using fstat or seeking so
+-dmi does not, by default need to be specified.
