@@ -574,6 +574,10 @@ int main(int argc, char *argv[])
         measure_latency(mem, 128, &cfg);
         measure_latency(mem, 256, &cfg);
         measure_latency(mem, 512, &cfg);
+        measure_latency(mem, 1024, &cfg);
+        measure_latency(mem, 2048, &cfg);
+        measure_latency(mem, 4096, &cfg);
+        measure_latency(mem, 8192, &cfg);
     }
 
     printf("Done!\n");
