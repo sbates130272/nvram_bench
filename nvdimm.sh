@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $# -neq 1 ]] ; then
+    echo 'nvdimm.sh requires one argument (a file on a mounted file system)'
+    exit 1
+fi
+
+
 p=64
 while [ $p -lt 17000 ]
 do
@@ -15,7 +21,7 @@ do
 			#for loop
 			for try in 1 2 3
 			do
-                    sudo nvram_bench -n 100 -t $t -p $p -rsl /mnt/pmfs/test.dat > try_$try
+                    sudo nvram_bench -n 100 -t $t -p $p -rsl $1 > try_$try
             done
             #end of for loop.
 
