@@ -177,7 +177,7 @@ static void thread_stats_print(const char * msg, struct thrd_info *threads_info)
 
     ttime = (float)secs + (float) ((float)usecs / (float)1000000);
 
-	if (cfg->force && secs == 0) {
+	if (!cfg->force && secs == 0) {
 		printf ("\n[ERROR] Test too short\n");
 		exit (-1);
 	}
