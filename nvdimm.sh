@@ -22,7 +22,7 @@ do
 	    mkdir -p P$p/'t_'$t'_P_'$p
 	    for try in 1 2 3
 	    do
-                ./build/nvram_bench -n 1 -f -t $t -p $p -rsl $1 > P$p/'t_'$t'_P_'$p/'try_'$try
+                ./build/nvram_bench -n 100 -f -t $t -p $p -rsl $1 > P$p/'t_'$t'_P_'$p/'try_'$try
             done
 	    t=$[$t+1]
 	done
