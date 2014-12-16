@@ -236,7 +236,7 @@ static double measure_latency_rw(void *mem, unsigned long tr_size, int f_write,
     *lat_max = 0;
     tp2.tv_usec = 0;
     tp2.tv_sec = 0;
-    dst = (AR*)mem ;
+    dst = (AR*)mem;
 
     for (i = 0; i < (times + 2); i++) // 2 iterations are to exclude min and max
     {
@@ -277,6 +277,12 @@ static void measure_latency(void *mem, unsigned long tr_size, struct config *cfg
     double lat = 0;
     double lat_min;
     double lat_max;
+
+    if (tr_size * (302) > cfg->dmi_size) {
+        printf("skiping latency test with sizeof %lu as it will exceed the file size\n",
+               tr_size);
+        return;
+    }
 
     lat = measure_latency_rw (mem, tr_size, 1, &lat_min, &lat_max, cfg); //write
     printf ("average write latency is: %06f uSec for sizeof %lu \n", lat, tr_size);
